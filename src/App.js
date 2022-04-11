@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import anime from 'animejs';
@@ -7,28 +8,22 @@ import ReactDOM from 'react-dom';
 import { SocialIcon } from 'react-social-icons';
 
 
+
+function ShowSubs() {
+  return (
+    <div>Hello</div>
+  )
+}
 function App() {
+  const [isShown, setIsShown] = useState(false);
+
+
   const { Anime, stagger } = ReactAnime
   var path = anime.path('#Box');
   return (
     <div className='main-container'>
-        <Anime
-          initial={
-            [
-              {
-                targets: ['.polygon', 'feTurbulence', 'feDisplacementMap'],
-                points: '64 128 8.574 96 8.574 32 64 0 119.426 32 119.426 96',
-                baseFrequency: 0,
-                scale: 1,
-                loop: true,
-                direction: 'alternate',
-                easing: 'easeInOutExpo'
-              }
-            ]
-          }
-        >
 
-               </Anime>
+
       <div className='flex-content-div'>
         <Anime
           initial={
@@ -45,7 +40,7 @@ function App() {
             ]
           }
         >
-          <svg width="750px" height="200px" xmlns="http://www.w3.org/2000/svg" viewBox="34.5 10.400000000000006 431 129.2" style={{ background: "none", stroke: '#0a5ee7' }} preserveAspectRatio="xMidYMid">
+          <svg width="750px" height="200px" xmlns="http://www.w3.org/2000/svg" viewBox="34.5 10.400000000000006 431 129.2" style={{ background: "none", stroke: '#4F86C9' }} preserveAspectRatio="xMidYMid">
             <defs>
               <linearGradient id="editing-outline-gradient" x1="-0.41354545764260087" x2="1.4135454576426008" y1="0.09326335692419985" y2="0.9067366430758002">
                 <stop offset="0" stopColor="#1087b0"></stop>
@@ -63,7 +58,7 @@ function App() {
                 <path style={{
                   fontFamily: 'Anek Tamil',
                   dominantBaseline: "central",
-                  textAnchor: "middle", color: '#0a5ee7', fill: 'white', stroke: "", strokeWidth: "1px"
+                  textAnchor: "middle", color: '#4F86C9', fill: 'white', stroke: "", strokeWidth: "3px"
                 }} className="svg"
                   d="M32.70-32.70L32.70-32.70Q33.54-32.70 34.08-32.16L34.08-32.16L34.08-32.16Q34.62-31.62 34.62-30.72L34.62-30.72L34.62-3.01L34.62-3.01Q34.62 1.98 32.54 5.54L32.54 5.54L32.54 5.54Q30.46 9.09 26.85 10.94L26.85 10.94L26.85 10.94Q23.23 12.80 18.56 12.80L18.56 12.80L18.56 12.80Q16.32 12.80 13.86 12.22L13.86 12.22L13.86 12.22Q11.39 11.65 9.63 10.75L9.63 10.75L9.63 10.75Q7.87 9.86 7.62 
        8.90L7.62 8.90L7.62 8.90Q7.17 8.45 7.17 7.87L7.17 7.87L7.17 7.87Q7.17 7.23 7.74 6.85L7.74 6.85L7.74 6.85Q8 6.66 8.38 6.66L8.38 6.66L8.38 6.66Q8.77 6.66 9.86 7.10L9.86 7.10L11.20 7.68L11.20 7.68Q15.17 9.22 18.62 9.22L18.62 9.22L18.62 9.22Q24.32 9.22 27.55 5.98L27.55 5.98L27.55 5.98Q30.78 2.75 30.78-2.75L30.78-2.75L30.78-6.72L30.78-6.72Q29.18-3.26 25.73-1.31L25.73-1.31L25.73-1.31Q22.27 
@@ -104,15 +99,33 @@ function App() {
 
         </Anime>
 
-        <h1>Welcome to my corner on the internet.</h1>
+        <h1 className='header'>Welcome to my corner on the internet.</h1>
         <div>
-          <SocialIcon className='social-icons' url="https://twitter.com/gyasilinje" />
-          <SocialIcon className='social-icons' url="https://instagram.com/gyasilinje" />
-          <SocialIcon className='social-icons' url="https://youtube.com/c/gyasilinje" />
-          <SocialIcon className='social-icons' url="https://github.com/gyasi11" />
-          <SocialIcon  className='social-icons'url="https://linkedin.com/in/gyasi-calhoun" />
+          <SocialIcon bgColor="#B0D4FF" className='social-icons' url="https://twitter.com/gyasilinje" />
+          <SocialIcon bgColor='#779DCA' className='social-icons' url="https://instagram.com/gyasilinje" />
+          <button className='yt-btn' onMouseEnter={() => setIsShown(true)}
+            onMouseLeave={() => setIsShown(false)}>
+            <SocialIcon bgColor='#3D5A7D' className='social-icons' url="https://youtube.com/c/gyasilinje" />
+          </button>
+          <SocialIcon bgColor='#4F86C9' className='social-icons' url="https://github.com/gyasi11" />
+          <SocialIcon bgColor='#779CC9' className='social-icons' url="https://linkedin.com/in/gyasi-calhoun" />
         </div>
-
+        {isShown && (
+          <Anime
+            initial={
+              [
+                {
+                  targets: '#subs',
+                  innerHTML: [0, 120000],
+                  easing: 'linear',
+                  round: 10 // Will round the animated value to 1 decimal
+                }
+              ]
+            }
+          >
+            <div id='subs'></div>
+          </Anime>
+        )}
       </div>
 
 

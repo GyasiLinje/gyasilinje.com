@@ -22,8 +22,19 @@
 
 .social-icons {
     margin: 10px;
+    z-index: 10;
+  
 }
 
-h1 {
-    color: #0a5ee7
+.header {
+    color: grey;
+    margin-top: 0px;
+    font-weight: 400;
+}
+
+.yt-btn {
+    z-index: 0;
+    background-color: white;
+    border: none;
+  text-align: center;
 }
