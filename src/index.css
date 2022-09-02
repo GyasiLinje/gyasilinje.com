@@ -9,6 +9,8 @@ body {
 
 @import url('https://fonts.googleapis.com/css2?family=Anek+Tamil:wght@100;200&display=swap');
 
+@import 'bulma/css/bulma.css';
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
