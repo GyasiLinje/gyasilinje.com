@@ -13,6 +13,33 @@ function onSubmit(e) {
 
 
 function Contact() {
+
+  const [email, setEmail] = useState('')
+  const [name, setName] = useState('')
+  const [message, setMessage] = useState('')
+
+  const handleNameInput = (e) => {
+    e.preventDefault();
+    setName(e.target.value)
+
+  }
+
+  const handleEmailInput = (e) => {
+    e.preventDefault();
+    setEmail(e.target.value)
+
+  }
+
+  const handleMessageInput = (e) => {
+    e.preventDefault();
+    setMessage(e.target.value)
+  }
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(name, message, email)
+  }
+
   return (
 
     <div className='contact-container'>
@@ -20,12 +47,11 @@ function Contact() {
 
       </div>
       <div className='right'>
- 
-        <form className='formContainer' onSubmit={onSubmit}>
-        <a className='home-link' href='/'>Contact Me</a>
-          <input placeholder='first name' className='form-input' type="text" name="firstName" />
-          <input placeholder='last name' className='form-input' type="text" name="lastName" />
-          <input placeholder='email' className='form-input' type="text" name="email" />
+        <form className='formContainer' onSubmit={handleSubmit}>
+          <a className='home-link' href='/'>Contact Me</a>
+          <input placeholder='first name' className='form-input' value={name} type="text" name="name" onChange={handleNameInput} />
+          <input placeholder='email' className='form-input' value={email} type="text" name="email" onChange={handleEmailInput}/>
+          <input placeholder='message' className='form-input' value={message} type="text" name="message" onChange={handleMessageInput} />
           <button className='submitBtn' value="submit"> Submit </button>
         </form>
       </div>

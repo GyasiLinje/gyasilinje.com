@@ -34,7 +34,6 @@
 .contact-container {
     display: grid;
     height: 100vh;
-    outline: green 2px solid;
     width: 100%;
 }
 
