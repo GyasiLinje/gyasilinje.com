@@ -30,7 +30,7 @@ const App = () => {
         </h1>
         {/* Replaced text content */}
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-200 mb-8">
-          A ex-software engineer, turned tech creator.
+        I used to build software—now I create stories around the tech that’s shaping our world.
         </h2>
         {/* Removed the paragraph text */}
         {/*
